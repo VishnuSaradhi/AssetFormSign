@@ -1,0 +1,37 @@
+<!-- asset-form.component.html -->
+
+<div class="container">
+ <form [formGroup]="sampleForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+   <mat-label>Serial No.</mat-label>
+   <input matInput formControlName="serialNo"
+  </mat-form-field>
+   <mat-label>Name</mat-label>
+   <input matInput formControlName="name"
+  </mat-form-field>
+  <mat-form-field>
+   <mat-label>No. Of Ports</mat-label>
+   <input matInput formControlName="noOfPorts" type="number">
+  </mat-form-field>
+  <mat-form-field>
+   <mat-label>Asset Type</mat-label>
+   <mat-select formControlName="assetType">
+        <mat-option value="asset1">Asset 1</mat-option>
+        <mat-option value="asset2">Asset 2</mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="saveAsset()">Save File</button>
+  <button mat-raised-button (click)="openSignPopUp()">Sign the File</button>
+
+<ng-template #signPopUp>
+ <h2 mat-dialog-title>Sign Your File</h2>
+ <mat-dialog-content>
+  <input type="file" (change) = onFileSelected($event);
+  <button mat-button (click) = signDoc> Sign </button>
+  <button mat-button mat-dialog-close> Close</button>
+ </mat-dialog-content>
+
+ 
+ </form>
+</div>
